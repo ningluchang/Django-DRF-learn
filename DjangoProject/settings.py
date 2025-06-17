@@ -39,7 +39,8 @@ INSTALLED_APPS = [
 
     # REST框架APP
     'rest_framework',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'Author_Book'
 ]
 
 MIDDLEWARE = [
