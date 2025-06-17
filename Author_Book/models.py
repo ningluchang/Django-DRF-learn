@@ -10,7 +10,7 @@ class Book(models.Model):
     title = models.CharField(max_length=100)
     author = models.ForeignKey(Author,related_name='books', on_delete=models.CASCADE)
     # 价格字段
-    price = models.DecimalField(max_digits=5, decimal_places=2)
+    price = models.DecimalField(max_digits=5, decimal_places=2, default=0)
 
     def __str__(self):
         return self.title
