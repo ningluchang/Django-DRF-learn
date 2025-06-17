@@ -62,6 +62,11 @@ REST_FRAMEWORK = {
         # 指定默认的认证方式，TokenAuthentication是基于Token令牌的认证。客户端请求时必须提供有效Token进行身份校验
         # 'rest_framework.authentication.TokenAuthentication',
     ],
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.OrderingFilter',
+        'rest_framework.filters.SearchFilter',
+    ],
 }
 
 ROOT_URLCONF = "DjangoProject.urls"
