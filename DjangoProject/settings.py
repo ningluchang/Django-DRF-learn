@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     # REST框架APP
     'rest_framework',
     'rest_framework.authtoken',
-    'Author_Book'
+    'rest_framework_simplejwt',
+    'Author_Book',
+    'auth2',
 ]
 
 MIDDLEWARE = [
@@ -56,17 +58,18 @@ MIDDLEWARE = [
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         # 配置默认的权限策略。IsAuthenticated表示只允许认证用户访问所有API，未认证的会被拒绝。
-        # 'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAuthenticated',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        # 指定默认的认证方式，TokenAuthentication是基于Token令牌的认证。客户端请求时必须提供有效Token进行身份校验
-        # 'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend',
         'rest_framework.filters.OrderingFilter',
         'rest_framework.filters.SearchFilter',
     ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
 }
 
 ROOT_URLCONF = "DjangoProject.urls"
